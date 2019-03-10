@@ -1,5 +1,9 @@
 class RecipesController < ApplicationController
-  
+
+  def search
+    @recipes = Recipe.where("title LIKE '%#{params[:q]}%'")
+  end
+
   def show
     @recipe = Recipe.find(params[:id])
   end
@@ -46,7 +50,6 @@ class RecipesController < ApplicationController
     flash[:errors] = "Receita deletada com sucesso"
     redirect_to root_path
   end
-  
   
   private
   def recipe_params
