@@ -8,6 +8,10 @@
 <h1>CookBook</h1>
 <p>Bem-vindo ao maior livro de receitas online</p>
 
+<ul>
+  <li><%= flash[:errors]%></li>
+</ul>
+
 <% @recipes.each do |recipe| %>
   <h1><%= link_to recipe.title, recipe %></h1>
   <ul>
