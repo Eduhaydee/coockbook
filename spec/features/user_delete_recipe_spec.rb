@@ -7,7 +7,8 @@ feature 'User delete recipe' do
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  featured: false)
 
     # simula a ação do usuário
     visit root_path
@@ -26,11 +27,13 @@ feature 'User delete recipe' do
     Recipe.create(title: 'Bolo de cenoura', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 50, ingredients: 'Farinha, açucar, cenoura',
-                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes')
+                  cook_method: 'Cozinhe a cenoura, corte em pedaços pequenos, misture com o restante dos ingredientes',
+                  featured: false)
     Recipe.create(title: 'Bolo de chocolate', difficulty: 'Médio',
                   recipe_type: recipe_type, cuisine: cuisine,
                   cook_time: 45, ingredients: 'Farinha, açucar, chocolate',
-                  cook_method: 'Derreta o chocolate, e misture com o restante dos ingredientes')
+                  cook_method: 'Derreta o chocolate, e misture com o restante dos ingredientes',
+                  featured: false)
     
     #simula ação do usuário
     visit root_path

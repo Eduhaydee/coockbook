@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   
   resources :recipes do
     get 'search', on: :collection
+    member do
+      post 'featured'
+      post 'unfeatured'
+    end
   end
 
   resources :recipe_types

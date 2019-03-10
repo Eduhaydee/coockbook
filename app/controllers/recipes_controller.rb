@@ -50,10 +50,22 @@ class RecipesController < ApplicationController
     flash[:errors] = "Receita deletada com sucesso"
     redirect_to root_path
   end
+
+  def featured
+    @recipe = Recipe.find(params[:id]) 
+    @recipe.update(featured: true)
+    redirect_to root_path
+  end
+
+  def unfeatured
+    @recipe = Recipe.find(params[:id]) 
+    @recipe.update(featured: false)
+    redirect_to root_path
+  end
   
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :recipe_type_id, :cuisine_id, :difficulty, :cook_time, :ingredients, :cook_method, :photo)
+    params.require(:recipe).permit(:title, :recipe_type_id, :cuisine_id, :difficulty, :cook_time, :ingredients, :cook_method, :photo, :featured)
   end
 
 end

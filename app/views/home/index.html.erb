@@ -12,12 +12,35 @@
   <li><%= flash[:errors]%></li>
 </ul>
 
-<% @recipes.each do |recipe| %>
-  <h1><%= link_to recipe.title, recipe %></h1>
-  <ul>
-    <li><%= recipe.recipe_type.name %></li>
-    <li><%= recipe.cuisine.name %></li>
-    <li><%= recipe.difficulty %></li>
-    <li><%= recipe.cook_time_min %></li>
-  </ul>
-<% end %>
+<div id= "featured">
+  <% if @recipe_featured.any? %>
+    <% @recipe_featured.each do |recipe| %>
+      <h1>
+        <% if recipe.featured %>
+          <%= image_tag 'recipes/star.png', alt: "#{recipe.title} em destaque", width: '2%' %>
+        <% end %>
+        <%= link_to recipe.title, recipe %>
+      </h1>
+      <ul>
+        <li><%= recipe.recipe_type.name %></li>
+        <li><%= recipe.cuisine.name %></li>
+        <li><%= recipe.difficulty %></li>
+        <li><%= recipe.cook_time_min %></li>
+      </ul>
+    <% end %>
+  <% else %>
+    <p>Nenhuma receita em destaque</p>
+  <% end %>
+</div>
+
+<div id= "other_recipes">
+  <% @recipe_unfeatured.each do |recipe| %>
+    <h1><%= link_to recipe.title, recipe %></h1>
+    <ul>
+      <li><%= recipe.recipe_type.name %></li>
+      <li><%= recipe.cuisine.name %></li>
+      <li><%= recipe.difficulty %></li>
+      <li><%= recipe.cook_time_min %></li>
+    </ul>
+  <% end %>
+</div>
