@@ -2,7 +2,11 @@ require 'rails_helper'
 
 feature 'Admin register cusine' do
   scenario 'successfully' do
+    user = User.create!(email: 'user1@email.com', password: 'user123')
+    
+    login_as user, scope: :user
     visit root_path
+
     click_on 'Cadastrar tipo de cozinha'
     fill_in 'Nome', with: 'Brasileira'
     click_on 'Enviar'

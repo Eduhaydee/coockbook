@@ -14,6 +14,7 @@
 <% else %>
   <%= link_to 'Destaque', featured_recipe_path(@recipe), method: :post %>
 <% end %>
+<span>Receita enviada por: <%= @recipe.user.email %></span>
 <h3>Detalhes</h3>
 <p><%= @recipe.recipe_type.name %></p>
 <p><%= @recipe.cuisine.name %></p>
