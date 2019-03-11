@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :recipes do
     get 'search', on: :collection
+    get 'my-recipes', on: :collection
     member do
       post 'featured'
       post 'unfeatured'

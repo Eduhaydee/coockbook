@@ -5,6 +5,10 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where("title LIKE '%#{params[:q]}%'")
   end
 
+  def my_recipes
+    @recipes = current_user.recipes
+  end
+  
   def show
     @recipe = Recipe.find(params[:id])
   end
