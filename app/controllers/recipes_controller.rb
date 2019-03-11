@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :my_recipes]
 
   def search
     @recipes = Recipe.where("title LIKE '%#{params[:q]}%'")
