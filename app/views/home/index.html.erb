@@ -47,3 +47,9 @@
     </ul>
   <% end %>
 </div>
+
+<div id= "last_recipes">
+  <% @last_recipes.each do |recipe| %>
+    <h1><%= link_to recipe.title, recipe %></h1>
+  <% end %>
+</div>
